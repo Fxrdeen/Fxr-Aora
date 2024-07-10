@@ -13,7 +13,7 @@ const SignUp = () => {
     email: "",
     password: "",
   });
-  const { setUser, setIsLoggedIn } = useGlobarContext();
+  const { setuser, setisLoggedIn } = useGlobarContext();
   const [isSubmitting, setisSubmitting] = useState(false);
   const submit = async () => {
     if (!form.username || !form.email || !form.password) {
@@ -22,8 +22,8 @@ const SignUp = () => {
     setisSubmitting(true);
     try {
       const result = await createUser(form.email, form.password, form.username);
-      setUser(result);
-      setIsLoggedIn(true);
+      setuser(result);
+      setisLoggedIn(true);
       router.replace("/home");
     } catch (error) {
       Alert.alert("error", error.message);
